@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwb8flqh3d3m2"]
+
+[ext_resource type="Script" path="res://node_2d.gd" id="1_peiop"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_peiop")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 136.0
+offset_top = 212.0
+offset_right = 328.0
+offset_bottom = 287.0
+theme_override_font_sizes/font_size = 28

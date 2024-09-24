@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd0qjhiudurmy"]
+
+[ext_resource type="Script" path="res://FireBaseTest.gd" id="1_45uwm"]
+[ext_resource type="Script" path="res://http_request.gd" id="2_qb3m5"]
+
+[node name="CFG" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Name" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 126.0
+offset_right = 252.0
+offset_bottom = 212.0
+text = "rrrr"
+placeholder_text = "Name"
+
+[node name="Rate" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 284.0
+offset_top = 129.0
+offset_right = 405.0
+offset_bottom = 210.0
+placeholder_text = "Rate"
+
+[node name="Insert" type="Button" parent="."]
+layout_mode = 0
+offset_left = 292.0
+offset_top = 278.0
+offset_right = 440.0
+offset_bottom = 383.0
+text = "Insert"
+
+[node name="Delete" type="Button" parent="."]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 282.0
+offset_right = 213.0
+offset_bottom = 368.0
+text = "Delete"
+
+[node name="Box" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = 426.0
+offset_right = 520.0
+offset_bottom = 1108.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="BoxContainer" type="BoxContainer" parent="Box"]
+layout_mode = 2
+
+[node name="HBC" type="VBoxContainer" parent="Box/BoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 88)
+layout_mode = 2
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("1_45uwm")
+
+[node name="HTTPR" type="HTTPRequest" parent="."]
+script = ExtResource("2_qb3m5")
+Path = "\"user://Data.cfg\""
+
+[connection signal="pressed" from="Insert" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="Delete" to="." method="_on_delete_button_pressed"]
