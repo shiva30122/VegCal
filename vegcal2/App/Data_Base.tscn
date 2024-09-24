@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=3 uid="uid://b02hsp5p8pwtj"]
+
+[ext_resource type="Script" path="res://App/DataBase.gd" id="1_v43lg"]
+[ext_resource type="PackedScene" uid="uid://cswl7h8q7yuqe" path="res://App/Main.tscn" id="2_ajus2"]
+
+[node name="DataBase" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v43lg")
+Main_Menu = ExtResource("2_ajus2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -551.0
+offset_top = -458.0
+offset_right = 1091.0
+offset_bottom = 1496.0
+color = Color(1, 0.0392157, 0.152941, 1)
+
+[node name="Name" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 166.0
+offset_right = 305.0
+offset_bottom = 235.0
+theme_override_font_sizes/font_size = 44
+placeholder_text = "Name"
+alignment = 1
+
+[node name="Rate" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 166.0
+offset_right = 495.0
+offset_bottom = 235.0
+theme_override_font_sizes/font_size = 44
+placeholder_text = "Rate"
+alignment = 1
+
+[node name="Add Data" type="Button" parent="."]
+layout_mode = 0
+offset_left = 334.0
+offset_top = 291.0
+offset_right = 823.0
+offset_bottom = 488.0
+scale = Vector2(0.306641, 0.298828)
+theme_override_font_sizes/font_size = 111
+text = "ADD"
+
+[node name="CreateTable" type="Button" parent="."]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 296.0
+offset_right = 307.0
+offset_bottom = 350.0
+theme_override_font_sizes/font_size = 33
+text = "Create Database"
+
+[node name="Notify" type="Label" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 384.0
+offset_right = 531.0
+offset_bottom = 690.0
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.8
+
+[node name="NoOfDataBase" type="Label" parent="."]
+layout_mode = 0
+offset_top = 37.0
+offset_right = 538.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 23
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Main Menu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 971.0
+offset_right = 385.0
+offset_bottom = 1032.0
+theme_override_font_sizes/font_size = 38
+text = "Main Menu"
+
+[connection signal="pressed" from="Add Data" to="." method="Add_Data"]
+[connection signal="pressed" from="CreateTable" to="." method="Create_Table"]
+[connection signal="timeout" from="Timer" to="." method="Timeout_Notify"]
+[connection signal="pressed" from="Main Menu" to="." method="MainMenu"]
