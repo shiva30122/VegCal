@@ -736,6 +736,7 @@ anchors_preset = 0
 script = ExtResource("1_mv8ed")
 
 [node name="ColorRect3" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -531.0
 offset_top = -459.0

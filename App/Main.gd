@@ -17,6 +17,7 @@ func _ready() -> void:
 	$Back2.connect("pressed",Back)
 	$Setting_List/Edit.connect("pressed",Back)
 	
+	Global.Total.connect(TotalAll)
 	
 	if not FileAccess.file_exists(config_file_path):
 		var file = FileAccess.open(config_file_path, FileAccess.WRITE)
@@ -34,7 +35,7 @@ func _ready() -> void:
 func load_all_data() -> void:
 	var config = ConfigFile.new()
 	config.load(config_file_path)
-	
+	$TotalButton/Amount.text = "  TOTAL AMOUNT = " + str(String("%.2f" % Total))
 	var error = config.load(config_file_path)
 	if error != OK:
 	
@@ -209,6 +210,7 @@ func Back_Pressed() -> void:
 	$Notify.text = "  MAIN MENU !...  "
 	$Out.start()
 	Back()
+	$TotalButton.show()
 	
 	pass # Replace with function body.
 
@@ -258,16 +260,21 @@ func _on_total_pressed() -> void:
 	$Out2.start()
 	$TotalButton/Amount.text = "  TOTAL AMOUNT = " + str(String("%.2f" % Total))
 
-	pass
 	
 	pass # Replace with function body.
 
+func  TotalAll():
+	
+	_on_total_pressed()
+	
+	pass
 
 func _on_refresh_pressed() -> void:
 	
 	load_all_data()
 	$Out.start()
-	
+	$Search.text =""
+	$TotalButton/Amount.text = "  TOTAL AMOUNT = " + str(String("%.2f" % Total))
 	$Notify.text = "  Refreshing . "
 	await get_tree().create_timer(0.3).timeout
 	$Notify.text = "  Refreshing .. "

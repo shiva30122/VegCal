@@ -179,6 +179,9 @@ func _on_show_pressed() -> void:
 
 func _on_kg_text_changed(new_text: String) -> void:
 	Calculate()
+	
+	Global.Total.emit()
+	
 
 
 func Calculate():

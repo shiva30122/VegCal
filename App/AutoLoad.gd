@@ -6,6 +6,7 @@ signal  Hide
 
 signal CALNotify(Message : String)
 
+signal Total
 
 @onready var TotalData : int 
 
